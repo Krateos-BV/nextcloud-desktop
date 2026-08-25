@@ -55,8 +55,9 @@ void SyncRunFileLog::start(const QString &folderPath)
                 filenameSingle = filenameSingle + QLatin1String("_1");
                 filename = logpath + QLatin1String("/") + filenameSingle + QLatin1String("_sync.log");
             }
+        } else {
+            break;
         }
-        else break;
     }
 
     // When the file is too big, just rename it to an old name.

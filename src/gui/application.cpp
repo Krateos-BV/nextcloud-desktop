@@ -1164,10 +1164,11 @@ void Application::showHelp()
            << Qt::endl
            << QLatin1String(optionsC);
 
-    if (_theme->appName() == QLatin1String("ownCloud"))
+    if (_theme->appName() == QLatin1String("ownCloud")) {
         stream << Qt::endl
                << "For more information, see http://www.owncloud.org" << Qt::endl
                << Qt::endl;
+    }
 
     displayHelpText(helpText);
 }

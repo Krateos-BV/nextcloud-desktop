@@ -163,15 +163,27 @@ public:
             prefixL++;
         }
 
-        if (prefixL == d2.size())
-            return false;
-        if (prefixL == d1.size())
-            return true;
+        if (prefixL == d2.size()) {
+            {
+                return false;
+            }
+        }
+        if (prefixL == d1.size()) {
+            {
+                return true;
+            }
+        }
 
-        if (data1[prefixL] == '/')
-            return true;
-        if (data2[prefixL] == '/')
-            return false;
+        if (data1[prefixL] == '/') {
+            {
+                return true;
+            }
+        }
+        if (data2[prefixL] == '/') {
+            {
+                return false;
+            }
+        }
 
         return data1[prefixL] < data2[prefixL];
     }
