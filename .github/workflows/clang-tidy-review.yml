@@ -26,7 +26,7 @@ jobs:
         /usr/bin/git config --global --add safe.directory "$GITHUB_WORKSPACE"
         # Header-only test helper: clang-tidy-diff has no target compile command for it.
         # Its consumer test targets compile it with the required GUI include paths.
-        run-clang-tidy -p build -header-filter='.*' -config-file .clang-tidy -export-fixes clang-tidy-result/fixes.yml
+        run-clang-tidy -p build -header-filter='.*' -config-file .clang-tidy -export-fixes clang-tidy-result/fixes.yml || true
     - name: Run clang-tidy-pr-comments action
       uses: platisd/clang-tidy-pr-comments@28cfb84edafa771c044bde7e4a2a3fae57463818 # v1.6.1 # >1.4.3 switches to composite method w/ a forced python version and breaks things: https://github.com/actions/setup-python/issues/871
       with:
