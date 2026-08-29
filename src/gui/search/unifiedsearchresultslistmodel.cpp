@@ -460,13 +460,10 @@ void UnifiedSearchResultsListModel::slotFetchProvidersFinished(const QJsonDocume
     }
 
     if (statusCode != 200) {
-        qCCritical(lcUnifiedSearch) << QStringLiteral("%1: Failed to fetch search providers for '%2'. Error: %3")
-                                           .arg(statusCode)
-                                           .arg(_searchTerm)
-                                           .arg(job->errorString());
-        _errorString +=
-            tr("Failed to fetch search providers for '%1'. Error: %2").arg(_searchTerm).arg(job->errorString())
-            + u'\n';
+        qCCritical(lcUnifiedSearch) << u"%1: Failed to fetch search providers for '%2'. Error: %3"_s.arg(QString::number(statusCode),
+                                                                                                         _searchTerm,
+                                                                                                         job->errorString());
+        _errorString += tr("Failed to fetch search providers for '%1'. Error: %2").arg(_searchTerm, job->errorString()) + u'\n';
         Q_EMIT errorStringChanged();
         return;
     }
@@ -523,12 +520,8 @@ void UnifiedSearchResultsListModel::slotSearchForProviderFinished(const QJsonDoc
     }
 
     if (statusCode != 200) {
-        qCCritical(lcUnifiedSearch) << QStringLiteral("%1: Search has failed for '%2'. Error: %3")
-                                           .arg(statusCode)
-                                           .arg(_searchTerm)
-                                           .arg(job->errorString());
-        _errorString +=
-            tr("Search has failed for '%1'. Error: %2").arg(_searchTerm).arg(job->errorString()) + u'\n';
+        qCCritical(lcUnifiedSearch) << u"%1: Search has failed for '%2'. Error: %3"_s.arg(QString::number(statusCode), _searchTerm, job->errorString());
+        _errorString += tr("Search has failed for '%1'. Error: %2").arg(_searchTerm, job->errorString()) + u'\n';
         Q_EMIT errorStringChanged();
         return;
     }

@@ -2,10 +2,14 @@
  * SPDX-FileCopyrightText: 2024 Nextcloud GmbH and Nextcloud contributors
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
-#include "syncenginetestutils.h"
+
+#include <QJsonArray>
+#include <QStandardPaths>
+#include <QTest>
+
 #include "clientsideencryption.h"
 #include "foldermetadata.h"
-#include <QtTest>
+#include "syncenginetestutils.h"
 
 using namespace OCC;
 

@@ -426,17 +426,13 @@ void SocketApi::slotReadSocket()
         } else if (command.startsWith("ENCRYPT")) {
             if (indexOfMethod != -1) {
                 ASSERT(thread() == QThread::currentThread())
-                staticMetaObject.method(indexOfMethod)
-                    .invoke(this, Qt::QueuedConnection, Q_ARG(QString, argument),
-                            Q_ARG(SocketListener *, listener.data()));
+                staticMetaObject.method(indexOfMethod).invoke(this, Qt::QueuedConnection, Q_ARG(QString, argument), Q_ARG(SocketListener *, listener.data()));
             }
         } else {
             if (indexOfMethod != -1) {
                 // to ensure that listener is still valid we need to call it with Qt::DirectConnection
                 ASSERT(thread() == QThread::currentThread())
-                staticMetaObject.method(indexOfMethod)
-                    .invoke(this, Qt::DirectConnection, Q_ARG(QString, argument),
-                        Q_ARG(SocketListener *, listener.data()));
+                staticMetaObject.method(indexOfMethod).invoke(this, Qt::DirectConnection, Q_ARG(QString, argument), Q_ARG(SocketListener *, listener.data()));
             }
         }
     }
@@ -1110,7 +1106,6 @@ void SocketApi::command_MOVE_ITEM(const QString &localFile, SocketListener *)
     }
 
     // If the parent doesn't accept new files, go to the root of the sync folder
-    QFileInfo fileInfo(localFile);
     const auto parentRecord = parentDir.journalRecord();
     if ((FileSystem::isFile(localFile) && !parentRecord._remotePerm.hasPermission(RemotePermissions::CanAddFile))
         || (FileSystem::isDir(localFile) && !parentRecord._remotePerm.hasPermission(RemotePermissions::CanAddSubDirectories))) {

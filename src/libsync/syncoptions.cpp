@@ -61,7 +61,7 @@ void SyncOptions::fillFromEnvironmentVariables()
         _targetChunkUploadDuration = std::chrono::milliseconds(targetChunkUploadDurationEnv.toUInt());
     }
 
-    int maxParallel = qgetenv("OWNCLOUD_MAX_PARALLEL").toInt();
+    int maxParallel = qEnvironmentVariableIntValue("OWNCLOUD_MAX_PARALLEL");
     if (maxParallel > 0) {
         _parallelNetworkJobs = maxParallel;
     }

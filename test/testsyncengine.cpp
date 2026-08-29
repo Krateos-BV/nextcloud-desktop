@@ -8,7 +8,8 @@
  * any purpose.
  */
 
-#include <QtTest>
+#include <QStandardPaths>
+#include <QTest>
 #include <QTextCodec>
 
 #include "syncenginetestutils.h"
@@ -20,7 +21,7 @@
 #include "syncoptions.h"
 
 #include <QFile>
-#include <QtTest>
+#include <QTest>
 
 #include <filesystem>
 
@@ -817,7 +818,7 @@ private Q_SLOTS:
         // We can't depend on currentLocalState for hidden files since
         // it should rightfully skip things like download temporaries
         auto localFileExists = [&](QString name) {
-            return QFileInfo(fakeFolder.localPath() + name).exists();
+            return QFileInfo::exists(fakeFolder.localPath() + name);
         };
 
         fakeFolder.syncEngine().setIgnoreHiddenFiles(true);
@@ -1307,8 +1308,6 @@ private Q_SLOTS:
         fakeFolder.setServerOverride([&](QNetworkAccessManager::Operation op, const QNetworkRequest &request,
                                          QIODevice *outgoingData) -> QNetworkReply * {
             Q_UNUSED(outgoingData)
-
-            auto attributeCustomVerb = request.attribute(QNetworkRequest::CustomVerbAttribute).toString();
 
             if (op == QNetworkAccessManager::CustomOperation
                 && request.attribute(QNetworkRequest::CustomVerbAttribute).toString() == QStringLiteral("MOVE")) {

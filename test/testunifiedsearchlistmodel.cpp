@@ -12,6 +12,7 @@
 #include <QAbstractItemModelTester>
 #include <QDesktopServices>
 #include <QSignalSpy>
+#include <QStandardPaths>
 #include <QTest>
 
 namespace {
@@ -355,7 +356,7 @@ private Q_SLOTS:
     void testSetSearchTermStartStopSearch()
     {
         // make sure the model is empty
-        model->setSearchTerm(QStringLiteral(""));
+        model->setSearchTerm(QString{});
         QVERIFY(model->rowCount() == 0);
 
         // #1 test setSearchTerm actually sets the search term and the signal is emitted
@@ -382,14 +383,14 @@ private Q_SLOTS:
         QVERIFY(model->isSearchInProgress());
 
         // #5 test that model has stopped the search after setting empty search term
-        model->setSearchTerm(QStringLiteral(""));
+        model->setSearchTerm(QString{});
         QVERIFY(!model->isSearchInProgress());
     }
 
     void testSetSearchTermResultsFound()
     {
         // make sure the model is empty
-        model->setSearchTerm(QStringLiteral(""));
+        model->setSearchTerm(QString{});
         QVERIFY(model->rowCount() == 0);
 
         // test that search term gets set, search gets started and enough results get returned
@@ -415,7 +416,7 @@ private Q_SLOTS:
     void testSetSearchTermResultsNotFound()
     {
         // make sure the model is empty
-        model->setSearchTerm(QStringLiteral(""));
+        model->setSearchTerm(QString{});
         QVERIFY(model->rowCount() == 0);
 
         // test that search term gets set, search gets started and enough results get returned
@@ -441,7 +442,7 @@ private Q_SLOTS:
     void testFetchMoreClicked()
     {
         // make sure the model is empty
-        model->setSearchTerm(QStringLiteral(""));
+        model->setSearchTerm(QString{});
         QVERIFY(model->rowCount() == 0);
 
         QSignalSpy searchInProgressChanged(
@@ -541,7 +542,7 @@ private Q_SLOTS:
     void testSearchResultlicked()
     {
         // make sure the model is empty
-        model->setSearchTerm(QStringLiteral(""));
+        model->setSearchTerm(QString{});
         QVERIFY(model->rowCount() == 0);
 
         // test that search term gets set, search gets started and enough results get returned
@@ -599,7 +600,7 @@ private Q_SLOTS:
     void testSetSearchTermResultsError()
     {
         // make sure the model is empty
-        model->setSearchTerm(QStringLiteral(""));
+        model->setSearchTerm(QString{});
         QVERIFY(model->rowCount() == 0);
 
         QSignalSpy errorStringChanged(model.data(), &OCC::UnifiedSearchResultsListModel::errorStringChanged);
@@ -628,7 +629,7 @@ private Q_SLOTS:
 
     void testSearchStatePlaceholderWhenNoSearchTerm()
     {
-        model->setSearchTerm(QStringLiteral(""));
+        model->setSearchTerm(QString{});
         QVERIFY(model->rowCount() == 0);
 
         QVERIFY(!model->hasSearchTerm());
@@ -638,7 +639,7 @@ private Q_SLOTS:
 
     void testSearchStateSkeletonWhileSearching()
     {
-        model->setSearchTerm(QStringLiteral(""));
+        model->setSearchTerm(QString{});
         QVERIFY(model->rowCount() == 0);
 
         QSignalSpy searchStateChanged(model.data(), &OCC::UnifiedSearchResultsListModel::searchStateChanged);
@@ -661,12 +662,12 @@ private Q_SLOTS:
         QVERIFY(model->rowCount() == 0);
         QCOMPARE(model->searchState(), OCC::UnifiedSearchResultsListModel::SearchState::Skeleton);
 
-        model->setSearchTerm(QStringLiteral(""));
+        model->setSearchTerm(QString{});
     }
 
     void testSearchStateResultsWhenResultsFound()
     {
-        model->setSearchTerm(QStringLiteral(""));
+        model->setSearchTerm(QString{});
         QVERIFY(model->rowCount() == 0);
 
         QSignalSpy searchStateChanged(model.data(), &OCC::UnifiedSearchResultsListModel::searchStateChanged);
@@ -687,12 +688,12 @@ private Q_SLOTS:
         QCOMPARE(model->searchState(), OCC::UnifiedSearchResultsListModel::SearchState::Results);
         QVERIFY(searchStateChanged.count() > 0);
 
-        model->setSearchTerm(QStringLiteral(""));
+        model->setSearchTerm(QString{});
     }
 
     void testSearchStateNothingFoundWhenNoResults()
     {
-        model->setSearchTerm(QStringLiteral(""));
+        model->setSearchTerm(QString{});
         QVERIFY(model->rowCount() == 0);
 
         QSignalSpy searchInProgressChanged(
@@ -711,12 +712,12 @@ private Q_SLOTS:
         QVERIFY(!model->hasSearchError());
         QCOMPARE(model->searchState(), OCC::UnifiedSearchResultsListModel::SearchState::NothingFound);
 
-        model->setSearchTerm(QStringLiteral(""));
+        model->setSearchTerm(QString{});
     }
 
     void testSearchStateSearchErrorWhenSearchFails()
     {
-        model->setSearchTerm(QStringLiteral(""));
+        model->setSearchTerm(QString{});
         QVERIFY(model->rowCount() == 0);
 
         QSignalSpy searchInProgressChanged(
@@ -734,7 +735,7 @@ private Q_SLOTS:
         QVERIFY(model->hasSearchError());
         QCOMPARE(model->searchState(), OCC::UnifiedSearchResultsListModel::SearchState::SearchError);
 
-        model->setSearchTerm(QStringLiteral(""));
+        model->setSearchTerm(QString{});
     }
 
     void cleanupTestCase()

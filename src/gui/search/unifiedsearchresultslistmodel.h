@@ -7,9 +7,10 @@
 
 #include "unifiedsearchresult.h"
 
-#include <limits>
+#include <QAbstractListModel>
+#include <QTimer>
 
-#include <QtCore>
+#include <limits>
 
 namespace OCC {
 class AccountState;
