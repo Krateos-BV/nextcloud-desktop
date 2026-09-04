@@ -1,0 +1,82 @@
+name: Upstream Sync
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'   # Weekly, Monday 06:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: master
+
+      - name: Add upstream remote
+        run: |
+          git remote add upstream https://github.com/nextcloud/desktop.git || true
+          git fetch upstream master
+
+      - name: Check drift
+        id: check
+        run: |
+          BEHIND=$(git rev-list --count HEAD..upstream/master)
+          echo "behind=$BEHIND" >> "$GITHUB_OUTPUT"
+
+      - name: Attempt merge on sync branch
+        if: steps.check.outputs.behind != '0'
+        id: merge
+        run: |
+          DATE=$(date +%Y-%m-%d)
+          BRANCH="sync/upstream-$DATE"
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+          git checkout -b "$BRANCH"
+          git config user.name "xenia-sync-bot"
+          git config user.email "bot@xeniacloud.eu"
+          if git merge upstream/master --no-edit; then
+            echo "status=clean" >> "$GITHUB_OUTPUT"
+            git push origin "$BRANCH"
+          else
+            echo "status=conflict" >> "$GITHUB_OUTPUT"
+            git diff --name-only --diff-filter=U > /tmp/conflicts.txt
+            git merge --abort
+          fi
+
+      - name: Open PR (clean)
+        if: steps.merge.outputs.status == 'clean'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr create \
+            --title "Upstream sync: ${{ steps.merge.outputs.branch }}" \
+            --body "Automated merge of nextcloud/desktop:master (${{ steps.check.outputs.behind }} commits behind). Review before merging — theme/colored/* is a rebrand collision point even on clean merges." \
+            --base master --head "${{ steps.merge.outputs.branch }}"
+
+      - name: Open issue (conflict)
+        if: steps.merge.outputs.status == 'conflict'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create \
+            --title "Upstream sync conflict: $(date +%Y-%m-%d)" \
+            --body-file - \
+            --assignee "v-giannakopoulos" <<EOF
+          Merge of nextcloud/desktop:master (${{ steps.check.outputs.behind }} commits behind) hit conflicts in:
+
+          \`\`\`
+          $(cat /tmp/conflicts.txt)
+          \`\`\`
+
+          Resolve manually:
+
+          \`\`\`
+          git fetch upstream master && git checkout master && git checkout -b sync/upstream-manual && git merge upstream/master
+          \`\`\`
+          EOF
