@@ -1,121 +1,233 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="220.6849 11.4388 480 480"
+   width="480px"
+   height="480px"
    version="1.1"
-   id="Layer_1"
-   x="0px"
-   y="0px"
-   viewBox="0 0 150.00001 149.99999"
-   enable-background="new 0 0 196.6 72"
-   xml:space="preserve"
-   inkscape:version="1.0 (4035a4f, 2020-05-01)"
-   sodipodi:docname="nextcloud-icon-round.svg"
-   width="160"
-   height="160"
-   inkscape:export-filename="nextcloud-icon-1024.png"
-   inkscape:export-xdpi="612.79999"
-   inkscape:export-ydpi="612.79999">
-    <metadata
-   id="metadata20">
-        <rdf:RDF>
-            <cc:Work
-   rdf:about="">
-                <dc:format>image/svg+xml</dc:format>
-                <dc:type
-   rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-                <dc:title></dc:title>
-            </cc:Work>
-        </rdf:RDF>
-    </metadata>
-    <defs
-   id="defs18">
-        <linearGradient
-   inkscape:collect="always"
-   id="linearGradient857">
-            <stop
-   style="stop-color:#0082c9;stop-opacity:1;"
-   offset="0"
-   id="stop853" />
-            <stop
-   style="stop-color:#1cafff;stop-opacity:1"
-   offset="1"
-   id="stop855" />
-        </linearGradient>
-        <clipPath
-   clipPathUnits="userSpaceOnUse"
-   id="clipPath8812">
-            <circle
-   id="circle8814"
-   cx="95.669289"
-   cy="95.669296"
-   r="79.724197"
-   style="fill:#00080d;fill-opacity:1;stroke-width:1" />
-        </clipPath>
-        <linearGradient
-   gradientTransform="matrix(0.92898391,0,0,0.92898394,75.000006,74.999997)"
-   inkscape:collect="always"
-   xlink:href="#linearGradient857"
-   id="linearGradient1192"
-   gradientUnits="userSpaceOnUse"
-   x1="18.230097"
-   y1="150"
-   x2="150.00002"
-   y2="-7.6293945e-06" />
-    </defs>
-    <sodipodi:namedview
-   pagecolor="#ffffff"
-   bordercolor="#666666"
-   borderopacity="1"
-   objecttolerance="10"
-   gridtolerance="10"
-   guidetolerance="10"
-   inkscape:pageopacity="0"
-   inkscape:pageshadow="2"
-   inkscape:window-width="1440"
-   inkscape:window-height="812"
-   id="namedview16"
-   showgrid="false"
-   inkscape:zoom="2.8284271"
-   inkscape:cx="57.814339"
-   inkscape:cy="72.675931"
-   inkscape:current-layer="Layer_1"
-   fit-margin-top="0"
-   fit-margin-left="0"
-   fit-margin-right="0"
-   fit-margin-bottom="0"
-   inkscape:window-x="0"
-   inkscape:window-y="23"
-   inkscape:window-maximized="1"
-   units="px"
-   inkscape:snap-bbox="true"
-   inkscape:bbox-paths="true"
-   inkscape:bbox-nodes="true"
-   inkscape:snap-bbox-edge-midpoints="true"
-   inkscape:snap-bbox-midpoints="true"
-   inkscape:snap-page="true"
-   inkscape:document-rotation="0" />
-    <circle
-   r="74.0625"
-   cy="75"
-   cx="75"
-   id="circle1050"
-   style="opacity:1;fill:url(#linearGradient1192);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.0928984;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-   inkscape:export-filename="nextcloud-icon.png"
-   inkscape:export-xdpi="300"
-   inkscape:export-ydpi="300" />
+   id="svg15"
+   sodipodi:docname="xenia-files-fixed.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTowMDFiMmIxZC1kNDc4LTRiZGEtYTAyYS1kNTY1M2Y3ZDQxZTcAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaPCloAmcucx3Vj8QLZvUi/QAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDo0OWFlNGFjNS1kNTJjLTQ3OWItODg2OS0xOGFhZjdkYzk5YTZscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNovd2ATbBeycms/Ss4mtobUgAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggtrDweoCCvRdYsFlIPhetf+nKwL5TiAKx2oByE7WIMJqkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaD7A+Fvjj/v3GWnVePSmEhYAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIMk1Q5NGq62/hg/tB86VKI/QOM1hJ2ueDHWbnIrD5moMZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GQIYZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjAwMWIyYjFkLWQ0NzgtNGJkYS1hMDJhLWQ1NjUzZjdkNDFlNy9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmI2ZGQzZDBlLTgwNWEtNDQ0OC1iZWM3LWJhNGMyMTYzZTQyNHJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCC2sPB6gIK9F1iwWUg+F61/6crAvlOIArHagHITtYgwmqJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggVstg34LKkYT+3DI+EIp1I9TxcucbIs5wDg3NiT5gljiiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFgggkpttn88CvfDX00kLmbqH6aKLSjxtNmc3rfcHIFdP7Z0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQCpBOCIOfchhnZdDFU6Nx08UqBtCHgVF7rQ3Ks/HtxGW96ddS1WBFTTz0XCs+BDS0+ZoeGGds8/5Ld0KS/cu4do=</c2pa:manifest></metadata>
+  <sodipodi:namedview
+     id="namedview15"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1"
+     inkscape:cx="231.5"
+     inkscape:cy="240"
+     inkscape:window-width="1710"
+     inkscape:window-height="1017"
+     inkscape:window-x="0"
+     inkscape:window-y="34"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg15" />
+  <defs
+     id="defs12">
+    <filter
+       id="dropShadow"
+       x="0"
+       y="0"
+       width="1"
+       height="1">
+      <feDropShadow
+         dx="0"
+         dy="10"
+         stdDeviation="14"
+         flood-color="#000814"
+         flood-opacity="0.45" />
+    </filter>
+    <linearGradient
+       id="bgGrad"
+       x1="174.4"
+       y1="16"
+       x2="337.6"
+       y2="496"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#001233"
+         id="stop1" />
+      <stop
+         offset="0.55"
+         stop-color="#002266"
+         id="stop2" />
+      <stop
+         offset="1"
+         stop-color="#003399"
+         id="stop3" />
+    </linearGradient>
+    <clipPath
+       id="squircleClip">
+      <rect
+         x="16"
+         y="16"
+         width="480"
+         height="480"
+         rx="130"
+         ry="130"
+         id="rect3" />
+    </clipPath>
+    <pattern
+       id="grid"
+       width="22"
+       height="22"
+       patternUnits="userSpaceOnUse">
+      <line
+         x1="22"
+         y1="0"
+         x2="22"
+         y2="22"
+         stroke="#ffffff"
+         stroke-width="0.6"
+         id="line3" />
+      <line
+         x1="0"
+         y1="22"
+         x2="22"
+         y2="22"
+         stroke="#ffffff"
+         stroke-width="0.6"
+         id="line4" />
+    </pattern>
+    <radialGradient
+       id="glowTR"
+       cx="440"
+       cy="60"
+       r="260"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#4D8DFF"
+         stop-opacity="0.45"
+         id="stop4" />
+      <stop
+         offset="0.7"
+         stop-color="#4D8DFF"
+         stop-opacity="0.10"
+         id="stop5" />
+      <stop
+         offset="1"
+         stop-color="#4D8DFF"
+         stop-opacity="0"
+         id="stop6" />
+    </radialGradient>
+    <radialGradient
+       id="glowBL"
+       cx="60"
+       cy="460"
+       r="220"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#4CAF50"
+         stop-opacity="0.22"
+         id="stop7" />
+      <stop
+         offset="0.7"
+         stop-color="#4CAF50"
+         stop-opacity="0.06"
+         id="stop8" />
+      <stop
+         offset="1"
+         stop-color="#4CAF50"
+         stop-opacity="0"
+         id="stop9" />
+    </radialGradient>
+    <filter
+       id="glyphShadow"
+       x="0"
+       y="0"
+       width="1"
+       height="1">
+      <feDropShadow
+         dx="0"
+         dy="6"
+         stdDeviation="9"
+         flood-color="#00081E"
+         flood-opacity="0.35" />
+    </filter>
+    <radialGradient
+       id="glyphGrad"
+       cx="177.30906"
+       cy="183.20144"
+       r="194.24686"
+       gradientTransform="scale(1.1902381,0.84016805)"
+       fx="177.30906"
+       fy="183.20144"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#FFFFFF"
+         id="stop10" />
+      <stop
+         offset="0.55"
+         stop-color="#EAF1FC"
+         id="stop11" />
+      <stop
+         offset="1"
+         stop-color="#C7D6EC"
+         id="stop12" />
+    </radialGradient>
+  </defs>
+  <g
+     clip-path="url(#squircleClip)"
+     transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 204.68490600585935, -4.5612359046936035)"
+     id="g15">
+    <rect
+       x="16"
+       y="16"
+       width="480"
+       height="480"
+       fill="url(#grid)"
+       opacity="0.06"
+       id="rect13" />
+    <rect
+       x="16"
+       y="16"
+       width="480"
+       height="480"
+       fill="url(#glowTR)"
+       id="rect14" />
+    <rect
+       x="16"
+       y="16"
+       width="480"
+       height="480"
+       fill="url(#glowBL)"
+       id="rect15" />
+  </g>
+  <g
+     filter="url(#dropShadow)"
+     transform="translate(204.6849,-4.5611991)"
+     id="object-2">
+    <rect
+       x="16"
+       y="16"
+       width="480"
+       height="480"
+       rx="130"
+       ry="130"
+       fill="url(#bgGrad)"
+       id="rect12"
+       style="fill:url(#bgGrad)" />
+  </g>
+  <g
+     filter="url(#glyphShadow)"
+     transform="matrix(1.041667,0,0,1.041667,184.97989,24.472849)"
+     id="object-0"
+     inkscape:label="files">
     <path
-   inkscape:connector-curvature="0"
-   id="path1052"
-   d="m 75.095076,46.603241 c -12.931054,0 -23.891193,8.766401 -27.288104,20.643885 -2.952271,-6.299997 -9.349944,-10.713674 -16.718953,-10.713674 -10.13413,0 -18.464649,8.330521 -18.464649,18.464646 0,10.134113 8.330519,18.468436 18.464649,18.468436 7.369009,0 13.766682,-4.416376 16.718954,-10.71748 3.396911,11.878387 14.357049,20.647706 27.288103,20.647706 12.835421,0 23.739679,-8.637059 27.223474,-20.381468 3.00681,6.158056 9.32529,10.451242 16.58964,10.451242 10.13413,0 18.46844,-8.334323 18.46844,-18.468436 0,-10.134125 -8.33431,-18.464646 -18.46844,-18.464646 -7.26435,0 -13.58283,4.290496 -16.58964,10.44745 C 98.834755,55.23741 87.930497,46.603241 75.095076,46.603241 Z m 0,10.839181 c 9.761486,0 17.559482,7.794221 17.559482,17.555676 0,9.76144 -7.797996,17.559471 -17.559482,17.559471 -9.761428,0 -17.555649,-7.798031 -17.555649,-17.559471 0,-9.761455 7.79422,-17.555673 17.555649,-17.555676 z m -44.007057,9.930211 c 4.276712,0 7.629256,3.348731 7.629256,7.625465 0,4.276719 -3.352544,7.629255 -7.629256,7.629255 -4.276723,0 -7.625488,-3.352536 -7.625488,-7.629255 0,-4.276734 3.348765,-7.625465 7.625488,-7.625465 z m 87.820171,0 c 4.27676,0 7.62928,3.348731 7.62928,7.625465 0,4.276719 -3.35254,7.629255 -7.62928,7.629255 -4.27669,0 -7.62544,-3.352536 -7.62544,-7.629255 0,-4.276734 3.34876,-7.625465 7.62544,-7.625465 z"
-   style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.09669;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-   inkscape:export-filename="Nextcloud Hub logo variants.png"
-   inkscape:export-xdpi="300"
-   inkscape:export-ydpi="300" />
+       d="m 188,296 c -36,0 -64,-28 -64,-62 0,-34 26,-61 60,-62 6,-40 38,-68 76,-68 38,0 70,28 76,68 34,1 60,28 60,62 0,34 -28,62 -64,62 z"
+       fill="url(#glyphGrad)"
+       style="fill:url(#glyphGrad)"
+       id="path15" />
+  </g>
 </svg>
