@@ -9,6 +9,8 @@ permissions:
   contents: write
   pull-requests: write
   issues: write
+  workflows: write   # upstream's diff touches .github/workflows/*.yml; without this,
+                      # pushing the sync branch is rejected even with contents: write
 
 jobs:
   sync:
