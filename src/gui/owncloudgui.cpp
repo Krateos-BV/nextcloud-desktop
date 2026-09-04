@@ -39,6 +39,7 @@
 #include "tray/trayactivationpolicy.h"
 #include "tray/trayaccountappsmodel.h"
 #include "search/unifiedsearchresultslistmodel.h"
+#include "search/unifiedsearchpeoplemodel.h"
 #include "integration/fileactionsmodel.h"
 #include "governance/applygovernancelabel.h"
 #include "governance/deletegovernancelabel.h"
@@ -159,6 +160,7 @@ ownCloudGui::ownCloudGui(Application *parent)
     qmlRegisterType<FileDetails>("com.nextcloud.desktopclient", 1, 0, "FileDetails");
     qmlRegisterType<ShareModel>("com.nextcloud.desktopclient", 1, 0, "ShareModel");
     qmlRegisterType<ShareeModel>("com.nextcloud.desktopclient", 1, 0, "ShareeModel");
+    qmlRegisterType<UnifiedSearchPeopleModel>("com.nextcloud.desktopclient", 1, 0, "UnifiedSearchPeopleModel");
     qmlRegisterType<SortedShareModel>("com.nextcloud.desktopclient", 1, 0, "SortedShareModel");
     qmlRegisterType<SyncConflictsModel>("com.nextcloud.desktopclient", 1, 0, "SyncConflictsModel");
     qmlRegisterType<FileActionsModel>("com.nextcloud.desktopclient", 1, 0, "FileActionsModel");
@@ -728,10 +730,12 @@ void ownCloudGui::slotShutdown()
     // explicitly close windows. This is somewhat of a hack to ensure
     // that saving the geometries happens ASAP during a OS shutdown
     // those do delete on close
-    if (!_settingsDialog.isNull())
+    if (!_settingsDialog.isNull()) {
         _settingsDialog->close();
-    if (!_logBrowser.isNull())
+    }
+    if (!_logBrowser.isNull()) {
         _logBrowser->deleteLater();
+    }
 }
 
 void ownCloudGui::slotToggleLogBrowser()
