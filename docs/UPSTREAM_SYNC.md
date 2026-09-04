@@ -19,6 +19,13 @@ over a longer window.
 4. **Conflict** → aborts the merge (no branch is pushed), and opens an Issue listing the
    conflicting files, assigned to `v-giannakopoulos`, with the commands to resolve manually.
 
+`.github/workflows/` is always kept as this fork's own version and excluded from the merge
+result, regardless of what upstream changed there. This isn't a preference — GitHub's
+`GITHUB_TOKEN` is hard-blocked from ever pushing changes to workflow files (anti-self-escalation
+protection with no permission that lifts it), so a sync that included upstream's workflow changes
+would fail to push on every run where upstream touched CI. If upstream's CI is ever worth pulling
+in deliberately, do that merge by hand with a personal token that has the `workflow` OAuth scope.
+
 ## Branch convention
 
 Non-sync (rebrand/normal) work continues to land **directly on `master`**, same as today —

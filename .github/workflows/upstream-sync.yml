@@ -9,8 +9,6 @@ permissions:
   contents: write
   pull-requests: write
   issues: write
-  workflows: write   # upstream's diff touches .github/workflows/*.yml; without this,
-                      # pushing the sync branch is rejected even with contents: write
 
 jobs:
   sync:
@@ -42,7 +40,13 @@ jobs:
           git checkout -b "$BRANCH"
           git config user.name "xenia-sync-bot"
           git config user.email "bot@xeniacloud.eu"
-          if git merge upstream/master --no-edit; then
+          if git merge --no-commit --no-ff upstream/master; then
+            # GITHUB_TOKEN can never push changes to .github/workflows/ — GitHub
+            # hard-blocks it regardless of granted permissions, to stop a workflow
+            # from self-modifying/escalating other workflows. Keep this fork's own
+            # workflow files as-is rather than failing every sync run over it.
+            git checkout --no-overlay HEAD -- .github/workflows/
+            git commit --no-edit
             echo "status=clean" >> "$GITHUB_OUTPUT"
             git push origin "$BRANCH"
           else
