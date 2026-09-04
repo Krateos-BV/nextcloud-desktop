@@ -1,8 +1,14 @@
 name: Upstream Sync
 
 on:
-  schedule:
-    - cron: '0 6 * * 1'   # Weekly, Monday 06:00 UTC
+  # schedule trigger is disabled until Krateos-BV org Settings -> Actions -> General ->
+  # "Allow GitHub Actions to create and approve pull requests" is enabled (INF-225) — until
+  # then, every scheduled run on drift would push a sync branch, fail at the PR-create step,
+  # and leave an orphaned branch + a failed-run notification every week. Re-enable the
+  # schedule below once that org setting is confirmed on and a workflow_dispatch run opens
+  # a PR successfully end-to-end.
+  # schedule:
+  #   - cron: '0 6 * * 1'   # Weekly, Monday 06:00 UTC
   workflow_dispatch: {}
 
 permissions:

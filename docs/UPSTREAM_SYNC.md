@@ -10,6 +10,10 @@ Actions tab). Weekly was chosen over monthly because the gap was already ~4 days
 this was set up — staying weekly keeps each catch-up small instead of letting conflicts compound
 over a longer window.
 
+⚠️ **The `schedule:` trigger is currently commented out in the workflow file** (INF-225) — see
+"Required repo/org settings" below. Only `workflow_dispatch` runs until that's resolved, to avoid
+a failed run + an orphaned `sync/*` branch every Monday.
+
 ## What the workflow does
 
 1. Fetches `upstream/master` (`nextcloud/desktop`) and compares it against `origin/master`.
@@ -61,11 +65,16 @@ need resolving this cycle).
   `contents/pull-requests/issues: write` permissions block, so the repo-wide default can stay at
   "Read repository contents permission" (no need to broaden it for every other workflow in this
   repo).
-- Repo Settings → Actions → General → "Allow GitHub Actions to create and approve pull requests"
-  must be **enabled** — without it the clean-merge PR step fails
-  (`GitHub Actions is not permitted to create or approve pull requests`). If the Krateos-BV org
-  has a blanket policy disabling this, the org-level setting must be enabled first (org
-  Settings → Actions → General) — a repo-level toggle alone will 409 if the org blocks it.
+- **Krateos-BV org Settings → Actions → General → "Allow GitHub Actions to create and approve
+  pull requests" must be enabled — this is the current blocker (confirmed 4 Sep 2026).** The
+  org has this off, which blocks every repo underneath it: a repo-level attempt to enable it
+  409s with `The organization does not allow GitHub Actions to create or approve pull requests`.
+  Enabling the org setting alone should be sufficient (no separate repo-level toggle needed once
+  the org allows it). Confirmed live 4 Sep 2026: with this still off, a real `workflow_dispatch`
+  run correctly merged 56 upstream commits and pushed `sync/upstream-2026-09-04`, then failed at
+  `gh pr create` with `GraphQL: Resource not accessible by integration (createPullRequest)`. PR
+  #2 for that branch was opened manually (via a personal token, not `GITHUB_TOKEN`) to unblock
+  review this one time — the automation itself has not yet completed a run end-to-end.
 
 ## Rollback
 
