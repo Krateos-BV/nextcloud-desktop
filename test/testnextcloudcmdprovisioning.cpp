@@ -121,7 +121,7 @@ private Q_SLOTS:
         const auto output = runCmd({}, &exitCode);
 
         QCOMPARE(exitCode, expectedExitCode);
-        QVERIFY2(output.contains("nextcloudcmd") || output.contains("nextclouddevcmd"),
+        QVERIFY2(output.contains("xenia-desktopcmd") || output.contains("nextclouddevcmd"),
                  output.constData());
         QVERIFY2(output.contains("--userid"), output.constData());
     }
