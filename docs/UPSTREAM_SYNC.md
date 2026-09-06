@@ -10,18 +10,15 @@ Actions tab). Weekly was chosen over monthly because the gap was already ~4 days
 this was set up — staying weekly keeps each catch-up small instead of letting conflicts compound
 over a longer window.
 
-⚠️ **The `schedule:` trigger is currently commented out in the workflow file** (INF-225) — see
-"Required repo/org settings" below. Only `workflow_dispatch` runs until that's resolved, to avoid
-a failed run + an orphaned `sync/*` branch every Monday.
-
 ## What the workflow does
 
 1. Fetches `upstream/master` (`nextcloud/desktop`) and compares it against `origin/master`.
 2. If there's drift, creates a dated branch `sync/upstream-<date>` off current `master` and
    attempts `git merge upstream/master`.
 3. **Clean merge** → pushes the branch and opens a PR against `master` for review.
-4. **Conflict** → aborts the merge (no branch is pushed), and opens an Issue listing the
-   conflicting files, assigned to `v-giannakopoulos`, with the commands to resolve manually.
+4. **Conflict** → aborts the merge (no branch is pushed) and fails the run, with the conflicting
+   files and manual-resolution commands written to the run's job summary. Issues are disabled on
+   this repo, so a failed scheduled run (and its notification) is the alert — there's no Issue.
 
 `.github/workflows/` is always kept as this fork's own version and excluded from the merge
 result, regardless of what upstream changed there. This isn't a preference — GitHub's
@@ -56,25 +53,19 @@ git push origin sync/upstream-manual
 # open a PR against master once resolved
 ```
 
-Close the Issue once the resulting PR is merged (or once you've determined the conflict doesn't
-need resolving this cycle).
-
 ## Required repo/org settings
 
-- Repo Settings → Actions → General → Workflow permissions: the workflow declares its own
-  `contents/pull-requests/issues: write` permissions block, so the repo-wide default can stay at
-  "Read repository contents permission" (no need to broaden it for every other workflow in this
-  repo).
-- **Krateos-BV org Settings → Actions → General → "Allow GitHub Actions to create and approve
-  pull requests" must be enabled — this is the current blocker (confirmed 4 Sep 2026).** The
-  org has this off, which blocks every repo underneath it: a repo-level attempt to enable it
-  409s with `The organization does not allow GitHub Actions to create or approve pull requests`.
-  Enabling the org setting alone should be sufficient (no separate repo-level toggle needed once
-  the org allows it). Confirmed live 4 Sep 2026: with this still off, a real `workflow_dispatch`
-  run correctly merged 56 upstream commits and pushed `sync/upstream-2026-09-04`, then failed at
-  `gh pr create` with `GraphQL: Resource not accessible by integration (createPullRequest)`. PR
-  #2 for that branch was opened manually (via a personal token, not `GITHUB_TOKEN`) to unblock
-  review this one time — the automation itself has not yet completed a run end-to-end.
+- **Krateos-BV org Settings → Actions → General → "Workflow permissions" must be "Read and write
+  permissions"**, and **"Allow GitHub Actions to create and approve pull requests" must be
+  enabled.** Both are org-level; a repo-level attempt to raise either while the org is more
+  restrictive silently has no effect or 409s. Confirmed enabled 6 Sep 2026.
+- The PR-creation step uses `gh api repos/.../pulls` (REST), not `gh pr create`. `gh pr create`
+  drives GitHub's GraphQL `createPullRequest` mutation, which 403s
+  (`Resource not accessible by integration`) for `GITHUB_TOKEN` on forked repos even when the
+  above settings are correctly enabled and the equivalent REST call with the same token succeeds.
+  Verified end-to-end via `workflow_dispatch` against a disposable test branch on 6 Sep 2026 —
+  REST succeeded immediately after the org settings were confirmed; GraphQL (`gh pr create`)
+  still failed under identical permissions.
 
 ## Rollback
 

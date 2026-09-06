@@ -1,14 +1,8 @@
 name: Upstream Sync
 
 on:
-  # schedule trigger is disabled until Krateos-BV org Settings -> Actions -> General ->
-  # "Allow GitHub Actions to create and approve pull requests" is enabled (INF-225) — until
-  # then, every scheduled run on drift would push a sync branch, fail at the PR-create step,
-  # and leave an orphaned branch + a failed-run notification every week. Re-enable the
-  # schedule below once that org setting is confirmed on and a workflow_dispatch run opens
-  # a PR successfully end-to-end.
-  # schedule:
-  #   - cron: '0 6 * * 1'   # Weekly, Monday 06:00 UTC
+  schedule:
+    - cron: '0 6 * * 1'   # Weekly, Monday 06:00 UTC
   workflow_dispatch: {}
 
 permissions:
@@ -66,29 +60,34 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh pr create \
-            --title "Upstream sync: ${{ steps.merge.outputs.branch }}" \
-            --body "Automated merge of nextcloud/desktop:master (${{ steps.check.outputs.behind }} commits behind). Review before merging — theme/colored/* is a rebrand collision point even on clean merges." \
-            --base master --head "${{ steps.merge.outputs.branch }}"
+          # `gh pr create` drives GitHub's GraphQL createPullRequest mutation, which enforces a
+          # stricter/buggier permission check than the equivalent REST endpoint for GITHUB_TOKEN
+          # on forked repos — it 403s ("Resource not accessible by integration") even when the
+          # REST call with the same token succeeds. Use REST directly instead (INF-225).
+          gh api repos/${{ github.repository }}/pulls \
+            -f title="Upstream sync: ${{ steps.merge.outputs.branch }}" \
+            -f body="Automated merge of nextcloud/desktop:master (${{ steps.check.outputs.behind }} commits behind). Review before merging — theme/colored/* is a rebrand collision point even on clean merges." \
+            -f base="master" -f head="${{ steps.merge.outputs.branch }}"
 
-      - name: Open issue (conflict)
+      - name: Report conflict (fail run)
         if: steps.merge.outputs.status == 'conflict'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh issue create \
-            --title "Upstream sync conflict: $(date +%Y-%m-%d)" \
-            --body-file - \
-            --assignee "v-giannakopoulos" <<EOF
-          Merge of nextcloud/desktop:master (${{ steps.check.outputs.behind }} commits behind) hit conflicts in:
-
-          \`\`\`
-          $(cat /tmp/conflicts.txt)
-          \`\`\`
-
-          Resolve manually:
-
-          \`\`\`
-          git fetch upstream master && git checkout master && git checkout -b sync/upstream-manual && git merge upstream/master
-          \`\`\`
-          EOF
+          # Issues are disabled on this repo, so `gh issue create` isn't an option here — fail
+          # the run instead and surface the conflict details in the job summary, so the failed
+          # scheduled run itself (and its notification) is the alert.
+          {
+            echo "## Upstream sync conflict: $(date +%Y-%m-%d)"
+            echo
+            echo "Merge of nextcloud/desktop:master (${{ steps.check.outputs.behind }} commits behind) hit conflicts in:"
+            echo
+            echo '```'
+            cat /tmp/conflicts.txt
+            echo '```'
+            echo
+            echo "Resolve manually:"
+            echo
+            echo '```'
+            echo "git fetch upstream master && git checkout master && git checkout -b sync/upstream-manual && git merge upstream/master"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit 1
