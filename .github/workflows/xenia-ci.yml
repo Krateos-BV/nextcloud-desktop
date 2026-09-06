@@ -24,6 +24,7 @@ jobs:
         id: build-appimage
         env:
           APPNAME: "Xenia Desktop"
+          APPICON_NAME: "Xenia Desktop"
           EXECUTABLE_NAME: xenia-desktop
           VERSION_SUFFIX: ${{ github.ref_name }}
         run: |
