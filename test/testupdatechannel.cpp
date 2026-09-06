@@ -20,8 +20,11 @@
 // The goal of this test is to check whether the correct update channel is used when
 // multiple accounts are set up.
 //
-// Note: The behaviour for a branded client isn't tested, because there is no
-//       sane way, to have that reported (yet).
+// Note: this build is always branded (Xenia Desktop), so ConfigFile::currentUpdateChannel()
+//       is locked to the default channel regardless of any account's subscription/enterprise
+//       channel settings (upstream behavior, see ConfigFile::currentUpdateChannel()'s isBranded
+//       short-circuit). This test verifies that lock holds even while accounts are added,
+//       switched, and removed underneath it.
 //
 class TestUpdateChannel : public QObject
 {
@@ -69,7 +72,7 @@ private Q_SLOTS:
             account->setServerHasValidSubscription(false);
             OCC::AccountManager::instance()->addAccount(account);
         }
-        QCOMPARE(OCC::ConfigFile().currentUpdateChannel(), UpdateChannel::Beta.toString());
+        QCOMPARE(OCC::ConfigFile().currentUpdateChannel(), UpdateChannel::defaultUpdateChannel().toString());
 
         {
             auto fakeCreds = new FakeCredentials{fakeQnam.data()};
@@ -81,7 +84,7 @@ private Q_SLOTS:
             account->setEnterpriseUpdateChannel(UpdateChannel::Stable);
             OCC::AccountManager::instance()->addAccount(account);
         }
-        QCOMPARE(OCC::ConfigFile().currentUpdateChannel(), UpdateChannel::Stable.toString());
+        QCOMPARE(OCC::ConfigFile().currentUpdateChannel(), UpdateChannel::defaultUpdateChannel().toString());
 
         {
             auto fakeCreds = new FakeCredentials{fakeQnam.data()};
@@ -93,21 +96,21 @@ private Q_SLOTS:
             account->setEnterpriseUpdateChannel(UpdateChannel::Enterprise);
             OCC::AccountManager::instance()->addAccount(account);
         }
-        QCOMPARE(OCC::ConfigFile().currentUpdateChannel(), UpdateChannel::Enterprise.toString());
+        QCOMPARE(OCC::ConfigFile().currentUpdateChannel(), UpdateChannel::defaultUpdateChannel().toString());
 
         {
             auto account = OCC::AccountManager::instance()->account("EnterpriseEnterprise@");
             QVERIFY(account);
             OCC::AccountManager::instance()->deleteAccount(account.get());
         }
-        QCOMPARE(OCC::ConfigFile().currentUpdateChannel(), UpdateChannel::Stable.toString());
+        QCOMPARE(OCC::ConfigFile().currentUpdateChannel(), UpdateChannel::defaultUpdateChannel().toString());
 
         {
             auto account = OCC::AccountManager::instance()->account("EnterpriseStable@");
             QVERIFY(account);
             OCC::AccountManager::instance()->deleteAccount(account.get());
         }
-        QCOMPARE(OCC::ConfigFile().currentUpdateChannel(), UpdateChannel::Beta.toString());
+        QCOMPARE(OCC::ConfigFile().currentUpdateChannel(), UpdateChannel::defaultUpdateChannel().toString());
     }
 };
 
