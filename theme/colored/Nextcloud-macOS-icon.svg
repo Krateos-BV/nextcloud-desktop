@@ -116,11 +116,11 @@
         >
             <stop
                 offset="0%"
-                stop-color="#1CB3FF"
+                stop-color="#003399"
             />
             <stop
                 offset="100%"
-                stop-color="#0088CC"
+                stop-color="#001233"
             />
         </linearGradient>
         <filter
@@ -197,15 +197,18 @@
                 mode="normal"
             />
         </filter>
+        <path
+            id="logo-path"
+            transform="translate(295.96,359.5) scale(1.5885)"
+            d="m 64,192 c -36,0 -64,-28 -64,-62 0,-34 26,-61 60,-62 6,-40 38,-68 76,-68 38,0 70,28 76,68 34,1 60,28 60,62 0,34 -28,62 -64,62 z"
+        />
         <mask
             id="logo-mask"
         >
-            <circle cx="292" cy="512" r="100" fill="white" />
-            <circle cx="512" cy="512" r="152.5" fill="white" />
-            <circle cx="732" cy="512" r="100" fill="white" />
-            <circle cx="292" cy="512" r="40" fill="black" />
-            <circle cx="512" cy="512" r="92.5" fill="black" />
-            <circle cx="732" cy="512" r="40" fill="black" />
+            <use
+                xlink:href="#logo-path"
+                fill="white"
+            />
         </mask>
         <filter
             id="logo-shadow-filter"
@@ -236,12 +239,10 @@
                 height="100%"
                 fill="white"
             />
-            <circle cx="292" cy="512" r="100" fill="black" />
-            <circle cx="512" cy="512" r="152.5" fill="black" />
-            <circle cx="732" cy="512" r="100" fill="black" />
-            <circle cx="292" cy="512" r="40" fill="white" />
-            <circle cx="512" cy="512" r="92.5" fill="white" />
-            <circle cx="732" cy="512" r="40" fill="white" />
+            <use
+                xlink:href="#logo-path"
+                fill="black"
+            />
         </mask>
         <filter
             id="logo-top-edge-filter"
