@@ -1,0 +1,96 @@
+# SPDX-FileCopyrightText: 2026 Nextcloud GmbH and Nextcloud contributors
+# SPDX-License-Identifier: GPL-2.0-or-later
+#
+# XNT-48: manual-dispatch CI for the Xenia Desktop rebrand (Krateos-BV fork).
+# Unsigned build only — no code-signing step. Push trigger deferred until
+# XNT-47 (Krateos-BV Actions minutes/billing check) resolves; re-add
+# `on: push: branches: [master]` once that's confirmed.
+name: Xenia Desktop CI (unsigned)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  linux-appimage:
+    name: Linux AppImage (unsigned)
+    runs-on: ubuntu-latest
+    container: ghcr.io/nextcloud/continuous-integration-client-appimage-qt6:client-appimage-el8-6.10.2-4
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 1
+
+      - name: Configure, compile and package
+        id: build-appimage
+        env:
+          APPNAME: "Xenia Desktop"
+          EXECUTABLE_NAME: xenia-desktop
+          VERSION_SUFFIX: ${{ github.ref_name }}
+        run: |
+          BUILDNR=${GITHUB_RUN_ID} BUILD_UPDATER=ON DESKTOP_CLIENT_ROOT=`pwd` QT_BASE_DIR=/root/linux-gcc-x86_64 /bin/bash -c "./admin/linux/build-appimage.sh"
+
+      - name: Upload AppImage artifact
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: xenia-desktop-appimage-${{ github.ref_name }}-${{ github.sha }}
+          path: ${{ steps.build-appimage.outputs.APPIMAGE_NAME }}
+          overwrite: true
+          compression-level: 0 # squashfs is already compressed
+
+  windows-build:
+    name: Windows build (unsigned)
+    runs-on: windows-2022
+    env:
+      CRAFT_TARGET: windows-msvc2022_64-cl
+      CRAFT_MASTER_LOCATION: ${{ github.workspace }}\CraftMaster
+      CRAFT_MASTER_CONFIG: ${{ github.workspace }}\craftmaster.ini
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Install Craft Master with Nextcloud Client Deps
+        shell: pwsh
+        run: |
+          & cmd /C "git clone -q --depth=1 https://invent.kde.org/packaging/craftmaster.git ${{ env.CRAFT_MASTER_LOCATION }} 2>&1"
+
+          function craft() {
+              python "${{ env.CRAFT_MASTER_LOCATION }}\CraftMaster.py" --config "${{ env.CRAFT_MASTER_CONFIG }}" --target ${{ env.CRAFT_TARGET }} -c $args
+              if($LASTEXITCODE -ne 0) {exit $LASTEXITCODE}
+          }
+
+          craft --add-blueprint-repository "https://github.com/nextcloud/craft-blueprints-kde.git|stable-34.0|"
+          craft --add-blueprint-repository "https://github.com/nextcloud/craft-blueprints-nextcloud.git|stable-34.0|"
+          craft craft
+          craft --install-deps nextcloud-client
+
+      - name: Install inkscape
+        shell: pwsh
+        run: |
+          choco install inkscape
+
+      - name: Setup PATH
+        shell: pwsh
+        run: |
+          echo "${{ github.workspace }}\${{ env.CRAFT_TARGET }}\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+
+      - name: Compile
+        shell: pwsh
+        run: |
+          function craft() {
+              python "${{ env.CRAFT_MASTER_LOCATION }}\CraftMaster.py" --config "${{ env.CRAFT_MASTER_CONFIG }}" --target ${{ env.CRAFT_TARGET }} -c $args
+              if($LASTEXITCODE -ne 0) {exit $LASTEXITCODE}
+          }
+
+          craft --src-dir ${{ github.workspace }} nextcloud-client
+
+      - name: Upload build output artifact
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: xenia-desktop-windows-build-${{ github.ref_name }}-${{ github.sha }}
+          path: ${{ github.workspace }}\${{ env.CRAFT_TARGET }}\build\nextcloud-client\work\build\bin
+          if-no-files-found: error
